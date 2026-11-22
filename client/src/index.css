@@ -37,6 +37,22 @@
   h4 {
     @apply font-display font-normal;
     letter-spacing: 0.005em;
+    text-wrap: balance;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f4ede2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d9c7a4;
+    border: 3px solid #f4ede2;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c6a15b;
   }
 
   :focus-visible {
@@ -66,8 +82,56 @@
   }
 
   .btn-solid {
-    @apply btn border-plum bg-plum text-night hover:border-gold-400 hover:bg-gold-400 hover:text-plum;
+    @apply btn relative overflow-hidden border-plum bg-plum text-night hover:border-gold-400 hover:bg-gold-400 hover:text-plum;
     box-shadow: 0 18px 34px -22px rgba(58, 42, 63, 0.85);
+  }
+
+  /* A light sweep crosses the button on hover, like a foil edge catching the
+     light — the only animated flourish on the primary action. */
+  .btn-solid::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    bottom: -20%;
+    left: -55%;
+    width: 38%;
+    background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.55) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-18deg);
+    transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .btn-solid:hover::after {
+    left: 125%;
+  }
+
+  /* Header links: a hairline that draws in from the left, and stays under the
+     current page. */
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-link:hover::after,
+  .nav-link[aria-current='page']::after {
+    transform: scaleX(1);
   }
 
   .btn-line {
@@ -240,6 +304,36 @@
   .arch-mask {
     border-radius: 999px 999px 22px 22px;
     overflow: hidden;
+  }
+
+  /* The department ribbon pauses when the pointer is over it so a name can be
+     read without chasing it. */
+  .marquee:hover .animate-marquee,
+  .marquee:focus-within .animate-marquee {
+    animation-play-state: paused;
+  }
+
+  /* Scroll-linked entrance: browsers without scroll-driven animations simply
+     render the block at rest, so nothing is ever hidden. */
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(28px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .rise {
+        animation: rise-in linear both;
+        animation-timeline: view();
+        animation-range: entry 4% cover 22%;
+      }
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

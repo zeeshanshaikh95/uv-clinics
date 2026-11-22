@@ -15,7 +15,7 @@ export function ServiceCard({ product, priority = false }: { product: Product; p
 
   return (
     <article className="group relative">
-      <div className="relative overflow-hidden rounded-lg border border-gold-400/20 bg-white shadow-soft transition-shadow duration-500 group-hover:shadow-gold">
+      <div className="relative overflow-hidden rounded-lg border border-gold-400/20 bg-white shadow-soft transition-all duration-500 ease-silk group-hover:-translate-y-1.5 group-hover:border-gold-400/45 group-hover:shadow-gold">
         <Link to={`/service/${product.slug}`} aria-label={`View ${product.name}`} className="block">
           <div className="relative aspect-[3/4] overflow-hidden">
             {product.images[0] ? (
@@ -45,6 +45,14 @@ export function ServiceCard({ product, priority = false }: { product: Product; p
             )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum/45 via-transparent to-transparent opacity-80" />
             <div className="pointer-events-none absolute inset-2 rounded-md border border-white/0 transition-colors duration-500 group-hover:border-white/50" />
+
+            {/* A quiet invitation to open the treatment, kept off the artwork
+                until the card is hovered. */}
+            <span className="pointer-events-none absolute bottom-3 right-3 flex h-9 w-9 translate-y-2 items-center justify-center rounded-full border border-white/70 bg-white/90 text-plum opacity-0 shadow-soft backdrop-blur-md transition-all duration-500 ease-silk group-hover:translate-y-0 group-hover:opacity-100">
+              <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <path d="M7 17L17 7M9 7h8v8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
           </div>
         </Link>
 
@@ -66,13 +74,13 @@ export function ServiceCard({ product, priority = false }: { product: Product; p
         </div>
       </div>
 
-      <div className="pt-3.5">
+      <div className="pt-4">
         <Link to={`/service/${product.slug}`} className="block">
-          <h3 className="font-display text-lg leading-snug text-plum transition-colors hover:text-gold-600">
+          <h3 className="font-display text-[1.12rem] leading-snug text-plum transition-colors hover:text-gold-600">
             {truncate(product.name, 52)}
           </h3>
         </Link>
-        <div className="mt-1.5 flex items-baseline justify-between gap-3">
+        <div className="mt-2 flex items-baseline justify-between gap-3 border-t border-gold-400/15 pt-2">
           <p className="text-[9px] uppercase tracking-wide2 text-faint">
             {product.category?.name ?? 'Clinic treatment'}
           </p>

@@ -90,7 +90,7 @@ export function CategoryPage() {
             <p className="mb-8 text-[10px] uppercase tracking-wide2 text-faint">
               {products.length} {products.length === 1 ? 'treatment' : 'treatments'}
             </p>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-4 lg:gap-x-6">
+            <div className="rise grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-4 lg:gap-x-6">
               {products.map((product, index) => (
                 <ServiceCard key={product._id} product={product} priority={index < 4} />
               ))}

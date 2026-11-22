@@ -38,7 +38,10 @@ export function AboutPage() {
       <section className="border-b border-gold-400/20 bg-obsidian">
         <div className="shell grid items-center gap-12 py-16 sm:py-24 lg:grid-cols-2">
           <div>
-            <p className="eyebrow">Our story</p>
+            <p className="eyebrow flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-7 bg-gold-500/70" />
+              Our story
+            </p>
             <h1 className="mt-5 font-display text-4xl leading-[1.04] text-plum sm:text-6xl">
               Science in the room,<br />
               <span className="gold-text">style on the way out</span>
@@ -85,7 +88,7 @@ export function AboutPage() {
           <h2 className="mt-4 max-w-xl font-display text-3xl leading-tight text-plum sm:text-[2.8rem]">
             Four things we will not compromise on
           </h2>
-          <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-gold-400/25 bg-gold-400/20 sm:grid-cols-2">
+          <div className="rise mt-12 grid gap-px overflow-hidden rounded-md border border-gold-400/25 bg-gold-400/20 sm:grid-cols-2">
             {VALUES.map((value, index) => (
               <div key={value.title} className="bg-white p-7 sm:p-9">
                 <p className="gold-text font-display text-2xl">0{index + 1}</p>

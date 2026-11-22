@@ -168,6 +168,10 @@ export default {
           '0%': { transform: 'translateX(-120%) skewX(-18deg)' },
           '100%': { transform: 'translateX(220%) skewX(-18deg)' },
         },
+        'marquee-left': {
+          '0%': { transform: 'translate3d(0, 0, 0)' },
+          '100%': { transform: 'translate3d(-50%, 0, 0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) both',
@@ -182,6 +186,7 @@ export default {
         'pulse-ring': 'pulse-ring 4.5s ease-out infinite',
         'reveal-up': 'reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both',
         shimmer: 'shimmer 3.6s ease-in-out infinite',
+        'marquee-left': 'marquee-left 42s linear infinite',
       },
     },
   },

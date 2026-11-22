@@ -17,6 +17,7 @@ const NAV_ITEMS = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { count, openCart } = useCart();
   const { settings } = useSettings();
   const location = useLocation();
@@ -24,7 +25,12 @@ export function Header() {
   useEffect(() => setMenuOpen(false), [location.pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const top = window.scrollY;
+      setScrolled(top > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, top / max) : 0);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -53,7 +59,7 @@ export function Header() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-[10px] font-semibold uppercase tracking-wide2 transition-colors ${
+                `nav-link text-[10px] font-semibold uppercase tracking-wide2 transition-colors ${
                   isActive ? 'text-gold-700' : 'text-plum/65 hover:text-plum'
                 }`
               }
@@ -144,6 +150,13 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {/* Reading progress: a hairline that fills as the page is scrolled. */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-px origin-left bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300 transition-opacity duration-500"
+        style={{ transform: `scaleX(${progress})`, opacity: scrolled ? 1 : 0 }}
+      />
 
       {menuOpen ? (
         <nav className="border-t border-gold-400/20 bg-night px-5 pb-6 pt-2 lg:hidden" aria-label="Mobile">

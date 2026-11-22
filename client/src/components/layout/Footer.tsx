@@ -10,7 +10,8 @@ export function Footer() {
   const instagram = settings.instagramUrl || INSTAGRAM_URL;
 
   return (
-    <footer className="mt-24 border-t border-gold-400/25 bg-obsidian">
+    <footer className="mt-24 bg-obsidian">
+      <div aria-hidden="true" className="h-px w-full bg-gradient-to-r from-transparent via-gold-400/70 to-transparent" />
       <div className="shell grid gap-12 py-14 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] md:py-16">
         <div>
           <Wordmark size="md" asLink={false} className="items-start" />
@@ -24,7 +25,10 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="eyebrow">Treatments</p>
+          <p className="eyebrow flex items-center gap-2.5">
+            <span aria-hidden="true" className="h-px w-5 bg-gold-500/60" />
+            Treatments
+          </p>
           <ul className="mt-4 space-y-2.5 text-sm text-muted">
             <li><Link to="/services" className="hover:text-gold-700">All treatments</Link></li>
             <li><Link to="/category/skin" className="hover:text-gold-700">Skin &amp; dermatology</Link></li>
@@ -35,7 +39,10 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="eyebrow">Clinic</p>
+          <p className="eyebrow flex items-center gap-2.5">
+            <span aria-hidden="true" className="h-px w-5 bg-gold-500/60" />
+            Clinic
+          </p>
           <ul className="mt-4 space-y-2.5 text-sm text-muted">
             <li><Link to="/about" className="hover:text-gold-700">About us</Link></li>
             <li><Link to="/gallery" className="hover:text-gold-700">Gallery</Link></li>
@@ -45,7 +52,10 @@ export function Footer() {
         </div>
 
         <div>
-          <p className="eyebrow">Reach us</p>
+          <p className="eyebrow flex items-center gap-2.5">
+            <span aria-hidden="true" className="h-px w-5 bg-gold-500/60" />
+            Reach us
+          </p>
           <ul className="mt-4 space-y-2.5 text-sm text-muted">
             <li>
               <a

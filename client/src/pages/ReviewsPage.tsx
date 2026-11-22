@@ -36,7 +36,10 @@ export function ReviewsPage() {
 
       <section className="border-b border-gold-400/10 bg-obsidian">
         <div className="shell py-16 sm:py-20">
-          <p className="eyebrow">Reviews</p>
+          <p className="eyebrow flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-7 bg-gold-500/70" />
+            Reviews
+          </p>
           <h1 className="mt-4 font-display text-4xl leading-[1.05] text-plum sm:text-6xl">After the visit</h1>
           <div className="mt-6 flex items-center gap-4">
             <Stars rating={Math.round(average)} />
@@ -49,7 +52,7 @@ export function ReviewsPage() {
 
       <section className="shell py-14 sm:py-20">
         {reviews.loading ? (
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="rise grid gap-4 md:grid-cols-3">
             {[...Array(3)].map((_, index) => (
               <div key={index} className="skeleton h-48" />
             ))}
@@ -70,7 +73,7 @@ export function ReviewsPage() {
             }
           />
         ) : (
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="rise grid gap-4 md:grid-cols-3">
             {list.map((review) => (
               <figure key={review._id} className="panel flex flex-col p-6">
                 <Stars rating={review.rating} />

@@ -38,9 +38,9 @@ export function MiniCart() {
         type="button"
         aria-label="Close list"
         onClick={closeCart}
-        className="absolute inset-0 bg-plum/65 backdrop-blur-[3px]"
+        className="absolute inset-0 animate-fade-in bg-plum/65 backdrop-blur-[3px]"
       />
-      <aside className="absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-gold-400/25 bg-white shadow-panel">
+      <aside className="animate-slide-in-right absolute right-0 top-0 flex h-full w-full max-w-md flex-col border-l border-gold-400/25 bg-white shadow-panel">
         <header className="flex items-center justify-between border-b border-gold-400/15 px-6 py-5">
           <div>
             <p className="eyebrow">Your list</p>
@@ -51,7 +51,7 @@ export function MiniCart() {
           <button
             type="button"
             onClick={closeCart}
-            className="p-2 text-muted transition-colors hover:text-gold-300"
+            className="p-2 text-muted transition-colors hover:text-gold-700"
             aria-label="Close"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.3">
@@ -94,7 +94,7 @@ export function MiniCart() {
                         <Link
                           to={`/service/${item.slug}`}
                           onClick={closeCart}
-                          className="font-display text-lg leading-tight text-cream hover:text-gold-300"
+                          className="font-display text-lg leading-tight text-cream hover:text-gold-700"
                         >
                           {item.name}
                         </Link>
@@ -118,7 +118,7 @@ export function MiniCart() {
                         <button
                           type="button"
                           onClick={() => setQuantity(item.key, item.quantity - 1)}
-                          className="h-8 w-8 text-muted transition-colors hover:text-gold-300"
+                          className="h-8 w-8 text-muted transition-colors hover:text-gold-700"
                           aria-label={`Reduce ${item.name} quantity`}
                         >
                           −
@@ -127,13 +127,13 @@ export function MiniCart() {
                         <button
                           type="button"
                           onClick={() => setQuantity(item.key, item.quantity + 1)}
-                          className="h-8 w-8 text-muted transition-colors hover:text-gold-300"
+                          className="h-8 w-8 text-muted transition-colors hover:text-gold-700"
                           aria-label={`Increase ${item.name} quantity`}
                         >
                           +
                         </button>
                       </div>
-                      <p className="text-xs text-gold-300/90">{formatPrice(item.unitPrice)}</p>
+                      <p className="text-xs font-semibold text-gold-700">{formatPrice(item.unitPrice)}</p>
                     </div>
                   </div>
                 </li>

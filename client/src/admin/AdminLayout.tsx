@@ -30,7 +30,7 @@ export function AdminLayout() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="p-1 text-cream/50 hover:text-gold-300 lg:hidden"
+              className="p-1 text-cream/50 hover:text-gold-700 lg:hidden"
               aria-label="Close menu"
             >
               ✕
@@ -47,7 +47,7 @@ export function AdminLayout() {
                 className={({ isActive }) =>
                   `flex items-center justify-between border-l px-3 py-2.5 text-[11px] uppercase tracking-wide2 transition-colors ${
                     isActive
-                      ? 'border-gold-400 bg-gold-400/10 text-gold-200'
+                      ? 'border-gold-400 bg-gold-400/10 font-semibold text-gold-700'
                       : 'border-transparent text-cream/50 hover:text-cream'
                   }`
                 }
@@ -60,13 +60,13 @@ export function AdminLayout() {
           <div className="mt-auto border-t border-gold-400/15 pt-5">
             <p className="truncate text-[10px] uppercase tracking-wide2 text-cream/40">{admin?.email}</p>
             <div className="mt-3 flex flex-col gap-2 text-[10px] uppercase tracking-wide2">
-              <Link to="/admin/password" className="text-cream/60 hover:text-gold-300">
+              <Link to="/admin/password" className="text-cream/60 hover:text-gold-700">
                 Change password
               </Link>
-              <Link to="/" target="_blank" className="text-cream/60 hover:text-gold-300">
+              <Link to="/" target="_blank" className="text-cream/60 hover:text-gold-700">
                 View clinic ↗
               </Link>
-              <button type="button" onClick={logout} className="text-left text-cream/60 hover:text-gold-300">
+              <button type="button" onClick={logout} className="text-left text-cream/60 hover:text-gold-700">
                 Sign out
               </button>
             </div>
@@ -85,7 +85,7 @@ export function AdminLayout() {
 
       <div className="min-w-0 flex-1">
         <div className="flex items-center justify-between border-b border-gold-400/15 bg-obsidian px-5 py-3 lg:hidden">
-          <button type="button" onClick={() => setOpen(true)} className="text-[10px] uppercase tracking-wide2 text-gold-300">
+          <button type="button" onClick={() => setOpen(true)} className="text-[10px] uppercase tracking-wide2 text-gold-700">
             ☰ Menu
           </button>
           <span className="text-[10px] uppercase tracking-wide2 text-faint">UV Clinics Admin</span>

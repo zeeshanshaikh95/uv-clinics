@@ -102,8 +102,8 @@ export function HomePage() {
       <HeroSlider />
 
       {/* ── Department ticker ───────────────────────────────────── */}
-      <section className="overflow-hidden border-y border-gold-400/25 bg-white/70 py-4">
-        <div className="flex shrink-0 items-center gap-10 whitespace-nowrap px-5">
+      <section className="marquee overflow-hidden border-y border-gold-400/25 bg-white/70 py-4">
+        <div className="animate-marquee flex w-max items-center gap-10 whitespace-nowrap px-5">
           {[...DEPARTMENTS, ...DEPARTMENTS].map((department, index) => (
             <span key={`${department.title}-${index}`} className="flex items-center gap-10">
               <span className="font-display text-lg text-plum/85">{department.title}</span>
@@ -153,7 +153,7 @@ export function HomePage() {
             />
           </div>
         ) : (
-          <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-6">
+          <div className="rise mt-12 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-6">
             {featured.data.slice(0, 4).map((product, index) => (
               <ServiceCard key={product._id} product={product} priority={index < 2} />
             ))}
@@ -186,7 +186,7 @@ export function HomePage() {
               />
             </div>
           ) : (
-            <div className="mt-12 grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5">
+            <div className="rise mt-12 grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-5">
               {categories.data.slice(0, 6).map((category, index) => (
                 <Link
                   key={category._id}
@@ -229,11 +229,11 @@ export function HomePage() {
           title="Offers, as published"
           description="Every price here comes from the clinic's own Instagram. Offers rotate — confirm the current one on WhatsApp before you travel."
         />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="rise mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {OFFERS.map((offer) => (
             <div
               key={offer.label}
-              className="group relative flex items-center justify-between gap-4 overflow-hidden rounded-lg border border-gold-400/25 bg-white p-5 shadow-soft transition-shadow duration-500 hover:shadow-gold"
+              className="group relative flex items-center justify-between gap-4 overflow-hidden rounded-lg border border-gold-400/25 bg-white p-5 shadow-soft transition-all duration-500 ease-silk hover:-translate-y-1 hover:border-gold-400/55 hover:shadow-gold"
             >
               <div className="pointer-events-none absolute inset-0 translate-x-[-120%] skew-x-[-18deg] bg-gradient-to-r from-transparent via-gold-200/40 to-transparent transition-transform duration-1000 ease-silk group-hover:translate-x-[220%]" />
               <div>
@@ -324,7 +324,7 @@ export function HomePage() {
             ))}
           </div>
         ) : (
-          <div className="mt-12 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-6">
+          <div className="rise mt-12 grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-6">
             {restOfMenu.map((product) => (
               <ServiceCard key={product._id} product={product} />
             ))}
@@ -342,7 +342,7 @@ export function HomePage() {
               Clinical standards, salon finish
             </h2>
           </div>
-          <div className="relative mt-12 grid gap-px overflow-hidden rounded-md border border-gold-400/20 bg-gold-400/20 sm:grid-cols-3">
+          <div className="rise relative mt-12 grid gap-px overflow-hidden rounded-md border border-gold-400/20 bg-gold-400/20 sm:grid-cols-3">
             {PROMISES.map((promise, index) => (
               <div key={promise.title} className="bg-white p-6 sm:p-8">
                 <p className="gold-text font-display text-2xl">0{index + 1}</p>
@@ -363,7 +363,7 @@ export function HomePage() {
             linkTo="/gallery"
             linkLabel="Open the gallery"
           />
-          <div className="mt-12 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-4">
+          <div className="rise mt-12 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-4">
             {gallery.data.slice(0, 8).map((item) => (
               <a
                 key={item._id}
@@ -392,7 +392,7 @@ export function HomePage() {
       {reviews.data?.length ? (
         <section className="shell pb-16 sm:pb-24">
           <SectionIntro eyebrow="In their words" title="After the visit" linkTo="/reviews" linkLabel="All reviews" />
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
+          <div className="rise mt-12 grid gap-4 md:grid-cols-3">
             {reviews.data.slice(0, 3).map((review) => (
               <figure key={review._id} className="panel flex flex-col p-6">
                 <Stars rating={review.rating} />

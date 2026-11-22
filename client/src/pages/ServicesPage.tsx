@@ -62,7 +62,10 @@ export function ServicesPage() {
 
       <section className="border-b border-gold-400/10 bg-obsidian">
         <div className="shell py-14 sm:py-20">
-          <p className="eyebrow">Treatments</p>
+          <p className="eyebrow flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-7 bg-gold-500/70" />
+            Treatments
+          </p>
           <h1 className="mt-4 font-display text-4xl leading-[1.05] text-plum sm:text-6xl">{heading}</h1>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
             Published offer prices are shown against the treatment. Everything else is quoted after a
@@ -186,7 +189,7 @@ export function ServicesPage() {
               {services.data.length} {services.data.length === 1 ? 'treatment' : 'treatments'}
               {debounced ? ` for “${debounced}”` : ''}
             </p>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-4 lg:gap-x-6">
+            <div className="rise grid grid-cols-2 gap-x-4 gap-y-12 lg:grid-cols-4 lg:gap-x-6">
               {services.data.map((product, index) => (
                 <ServiceCard key={product._id} product={product} priority={index < 4} />
               ))}

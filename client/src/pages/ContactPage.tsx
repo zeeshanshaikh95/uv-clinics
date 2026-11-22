@@ -35,7 +35,10 @@ export function ContactPage() {
 
       <section className="border-b border-gold-400/20 bg-obsidian">
         <div className="shell py-16 sm:py-20">
-          <p className="eyebrow">Visit us</p>
+          <p className="eyebrow flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-7 bg-gold-500/70" />
+            Visit us
+          </p>
           <h1 className="mt-4 font-display text-4xl leading-[1.05] text-plum sm:text-6xl">
             Come in, sit down,<br />
             <span className="gold-text">let us take it from here</span>
@@ -50,7 +53,7 @@ export function ContactPage() {
       <section className="shell grid gap-12 py-14 sm:py-20 lg:grid-cols-[1fr_1fr]">
         <div>
           <div className="grid gap-px overflow-hidden rounded-md border border-gold-400/20 bg-gold-400/20 sm:grid-cols-2">
-            <div className="bg-white p-6">
+            <div className="bg-white p-6 transition-colors duration-500 hover:bg-gold-50">
               <p className="text-[9px] uppercase tracking-micro text-gold-600">The clinic</p>
               <p className="mt-3 text-sm leading-relaxed text-plum/85">
                 2nd Floor, Mirra Guduru Plaza,
@@ -70,7 +73,7 @@ export function ContactPage() {
               </a>
             </div>
 
-            <div className="bg-white p-6">
+            <div className="bg-white p-6 transition-colors duration-500 hover:bg-gold-50">
               <p className="text-[9px] uppercase tracking-micro text-gold-600">Call &amp; WhatsApp</p>
               {settings.whatsappNumber ? (
                 <>
@@ -94,7 +97,7 @@ export function ContactPage() {
               )}
             </div>
 
-            <div className="bg-white p-6">
+            <div className="bg-white p-6 transition-colors duration-500 hover:bg-gold-50">
               <p className="text-[9px] uppercase tracking-micro text-gold-600">Instagram</p>
               <a
                 href={instagram}
@@ -109,7 +112,7 @@ export function ContactPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6">
+            <div className="bg-white p-6 transition-colors duration-500 hover:bg-gold-50">
               <p className="text-[9px] uppercase tracking-micro text-gold-600">Hours</p>
               <p className="mt-3 text-sm leading-relaxed text-plum/85">Monday to Sunday</p>
               <p className="font-display text-xl text-plum">11:00 am – 10:00 pm</p>

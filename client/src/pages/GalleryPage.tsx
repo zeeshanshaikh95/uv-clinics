@@ -23,7 +23,10 @@ export function GalleryPage() {
 
       <section className="border-b border-gold-400/10 bg-obsidian">
         <div className="shell py-16 sm:py-20">
-          <p className="eyebrow">Gallery</p>
+          <p className="eyebrow flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-7 bg-gold-500/70" />
+            Gallery
+          </p>
           <h1 className="mt-4 font-display text-4xl leading-[1.05] text-plum sm:text-6xl">Work from the clinic</h1>
           <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
             Real clients, real light, no filters added after — skin, hair, nails and smiles from the floor. Tap any frame to open it larger.
@@ -42,7 +45,7 @@ export function GalleryPage() {
 
       <section className="shell py-14 sm:py-20">
         {items.loading ? (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="rise grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {[...Array(8)].map((_, index) => (
               <div key={index} className="skeleton aspect-[4/5]" />
             ))}
@@ -53,7 +56,7 @@ export function GalleryPage() {
             description="Photographs appear here as soon as they are added in the admin panel."
           />
         ) : (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+          <div className="rise grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
             {list.map((item) => (
               <button
                 key={item._id}
