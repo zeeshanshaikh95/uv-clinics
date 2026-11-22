@@ -44,14 +44,12 @@ export function Wordmark({
         <defs>
           <linearGradient id="uv-gold" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#8B6C32" />
-            <stop offset="30%" stopColor="#C6A15B" />
-            <stop offset="52%" stopColor="#FBF4E1" />
-            <stop offset="74%" stopColor="#C6A15B" />
-            <stop offset="100%" stopColor="#8B6C32" />
+            <stop offset="45%" stopColor="#C6A15B" />
+            <stop offset="100%" stopColor="#A8823A" />
           </linearGradient>
         </defs>
         <circle cx="36" cy="36" r="33" fill="none" stroke="url(#uv-gold)" strokeWidth="1.4" />
-        <circle cx="36" cy="36" r="29" fill="none" stroke="url(#uv-gold)" strokeWidth="0.6" opacity="0.75" />
+        <circle cx="36" cy="36" r="29" fill="none" stroke="url(#uv-gold)" strokeWidth="0.6" />
         <text
           x="36"
           y="45.5"
@@ -63,7 +61,7 @@ export function Wordmark({
         >
           UV
         </text>
-        <path d="M20 53.5h32" stroke="url(#uv-gold)" strokeWidth="0.7" opacity="0.8" />
+        <path d="M20 53.5h32" stroke="url(#uv-gold)" strokeWidth="0.7" />
         <circle cx="36" cy="9" r="1.2" fill="#C6A15B" />
         <circle cx="36" cy="63" r="1.2" fill="#C6A15B" />
       </svg>

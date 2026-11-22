@@ -137,27 +137,16 @@
     scrollbar-width: none;
   }
 
-  /* Champagne-foil typography — a moving metal sheen rather than flat gold. */
+  /* Solid champagne-gold typography. A gradient with near-white stops made the
+     wordmark disappear against the porcelain ground, so this is one opaque
+     gold: fully visible at every size, no clipping, no transparency. */
   .gold-text {
-    background-image: linear-gradient(
-      104deg,
-      #8b6c32 0%,
-      #c6a15b 18%,
-      #fffaf0 34%,
-      #e0c88a 48%,
-      #ae8944 60%,
-      #f8f0da 76%,
-      #c6a15b 90%,
-      #8b6c32 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #a8823a;
+    -webkit-text-fill-color: #a8823a;
   }
 
   .gold-text-animated {
-    animation: sheen-sweep 9s linear infinite;
+    color: #a8823a;
   }
 
   .gold-rule {
