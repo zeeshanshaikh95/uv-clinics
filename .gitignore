@@ -1,0 +1,18 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# Environment — never commit real secrets
+.env
+.env.local
+server/.env
+
+# Local dev database + uploaded media
+server/.data/
+server/uploads/
+client/.vite/
+
+# Reference material (the client's previous site, cloned for architecture reference)
+.reference/
+.tmp-ig/

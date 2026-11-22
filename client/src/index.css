@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-night font-body text-cream antialiased;
+    text-rendering: optimizeLegibility;
+    background-image: radial-gradient(
+      110% 60% at 50% -10%,
+      rgba(198, 161, 91, 0.16) 0%,
+      rgba(251, 248, 242, 0) 60%
+    );
+    background-repeat: no-repeat;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-normal;
+    letter-spacing: 0.005em;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-gold-400 ring-offset-2 ring-offset-night;
+  }
+
+  ::selection {
+    @apply bg-gold-200 text-plum;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-[10px] font-medium uppercase tracking-micro text-gold-600;
+  }
+
+  .hairline {
+    @apply border-t border-gold-400/20;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-[11px] font-semibold uppercase tracking-wide2 transition-all duration-300 ease-editorial disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .btn-solid {
+    @apply btn border-plum bg-plum text-night hover:border-gold-400 hover:bg-gold-400 hover:text-plum;
+    box-shadow: 0 18px 34px -22px rgba(58, 42, 63, 0.85);
+  }
+
+  .btn-line {
+    @apply btn border-gold-400/40 bg-white/60 text-plum backdrop-blur-sm hover:border-gold-400 hover:bg-gold-400 hover:text-plum;
+  }
+
+  .btn-ghost {
+    @apply btn border-transparent bg-transparent px-3 py-2 normal-case tracking-normal text-muted hover:text-gold-600;
+  }
+
+  .btn-quiet {
+    @apply btn-ghost;
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-graphite bg-white px-3.5 py-2.5 text-sm text-cream placeholder:text-faint focus:border-gold-400 focus:outline-none;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[10px] font-medium uppercase tracking-wide2 text-muted;
+  }
+
+  .panel {
+    @apply rounded-md border border-gold-400/20 bg-onyx shadow-soft;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-1 text-[9px] font-semibold uppercase tracking-wide2;
+  }
+
+  .badge-dark {
+    @apply badge border-plum bg-plum text-night;
+  }
+
+  .badge-line {
+    @apply badge border-gold-400/40 bg-white/85 text-gold-700 backdrop-blur-sm;
+  }
+
+  .link-quiet {
+    @apply text-muted underline decoration-gold-400/40 underline-offset-4 transition-colors hover:text-gold-600 hover:decoration-gold-400;
+  }
+
+  .skeleton {
+    @apply animate-pulse rounded-sm bg-graphite;
+  }
+
+  .glass {
+    @apply border border-white/60 bg-white/55 backdrop-blur-xl;
+  }
+
+  .prose-editorial p {
+    @apply mb-4 leading-[1.85] text-muted;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Champagne-foil typography — a moving metal sheen rather than flat gold. */
+  .gold-text {
+    background-image: linear-gradient(
+      104deg,
+      #8b6c32 0%,
+      #c6a15b 18%,
+      #fffaf0 34%,
+      #e0c88a 48%,
+      #ae8944 60%,
+      #f8f0da 76%,
+      #c6a15b 90%,
+      #8b6c32 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .gold-text-animated {
+    animation: sheen-sweep 9s linear infinite;
+  }
+
+  .gold-rule {
+    background-image: linear-gradient(
+      90deg,
+      rgba(198, 161, 91, 0) 0%,
+      rgba(198, 161, 91, 0.8) 50%,
+      rgba(198, 161, 91, 0) 100%
+    );
+  }
+
+  /* ── 3D hero primitives ─────────────────────────────────────── */
+  .scene {
+    perspective: 1500px;
+    perspective-origin: 50% 45%;
+    transform-style: preserve-3d;
+  }
+
+  .layer-3d {
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  /* A soft glass sphere with a champagne rim light. */
+  .orb {
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 30% 26%, rgba(255, 255, 255, 1) 0%, rgba(255, 253, 246, 0.65) 16%, rgba(198, 161, 91, 0.22) 44%, rgba(255, 255, 255, 0.28) 72%),
+      radial-gradient(circle at 72% 80%, rgba(139, 120, 198, 0.28) 0%, rgba(255, 255, 255, 0) 55%);
+    box-shadow:
+      inset 0 0 18px rgba(255, 255, 255, 0.9),
+      inset -6px -10px 22px rgba(198, 161, 91, 0.35),
+      0 24px 50px -26px rgba(58, 42, 63, 0.45);
+    backdrop-filter: blur(2px);
+  }
+
+  .orb-gold {
+    border-radius: 9999px;
+    background: radial-gradient(circle at 32% 26%, #fffaf0 0%, #efd9ab 18%, #c6a15b 48%, #7a5c26 100%);
+    box-shadow:
+      inset 0 2px 8px rgba(255, 255, 255, 0.75),
+      inset 0 -12px 22px rgba(70, 50, 12, 0.45),
+      0 26px 60px -28px rgba(198, 161, 91, 0.75);
+  }
+
+  .ring-3d {
+    border-radius: 9999px;
+    border: 1px solid rgba(198, 161, 91, 0.55);
+    box-shadow:
+      0 0 22px rgba(198, 161, 91, 0.22),
+      inset 0 0 22px rgba(198, 161, 91, 0.12);
+  }
+
+  /* A gold disc with a conic sheen, used as the light behind the portrait. */
+  .halo {
+    border-radius: 9999px;
+    background: conic-gradient(
+      from 210deg,
+      rgba(198, 161, 91, 0.05),
+      rgba(239, 217, 171, 0.85),
+      rgba(255, 253, 246, 0.9),
+      rgba(198, 161, 91, 0.55),
+      rgba(139, 120, 198, 0.35),
+      rgba(198, 161, 91, 0.05)
+    );
+    filter: blur(2px);
+  }
+
+  .medallion {
+    border-radius: 9999px;
+    background: radial-gradient(circle at 32% 24%, #fffaf0 0%, #efd9ab 26%, #c6a15b 58%, #654e23 100%);
+    box-shadow:
+      0 26px 70px -26px rgba(198, 161, 91, 0.75),
+      inset 0 2px 10px rgba(255, 255, 255, 0.7),
+      inset 0 -14px 30px rgba(90, 65, 20, 0.45);
+  }
+
+  /* Vertical glass bar that reads as a refraction in the scene. */
+  .shard {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.85) 0%,
+      rgba(239, 217, 171, 0.45) 45%,
+      rgba(139, 120, 198, 0.25) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 30px 60px -34px rgba(58, 42, 63, 0.5);
+    backdrop-filter: blur(6px);
+  }
+
+  .arch-mask {
+    border-radius: 999px 999px 22px 22px;
+    overflow: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .layer-3d {
+      transform: none !important;
+    }
+  }
+}
