@@ -186,7 +186,7 @@ export default {
         'pulse-ring': 'pulse-ring 4.5s ease-out infinite',
         'reveal-up': 'reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) both',
         shimmer: 'shimmer 3.6s ease-in-out infinite',
-        'marquee-left': 'marquee-left 42s linear infinite',
+        marquee: 'marquee-left 42s linear infinite',
       },
     },
   },
